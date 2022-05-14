@@ -1,0 +1,28 @@
+{
+  "name": "@metamath/redis",
+  "version": "1.0.0",
+  "description": "Redis database IO wrapper for MetaMath projects",
+  "main": "index.js",
+  "author": "Phill \"Taurinos\" Menezes",
+  "license": "MIT",
+  "scripts": {
+    "lint": "standard .",
+    "lint:fix": "standard . --fix",
+    "test": "jest --verbose",
+    "test:watch": "jest --watchAll --verbose",
+    "coverage": "jest --watchAll --verbose --coverage"
+  },
+  "standard": {
+    "ignore": [
+      "*.test.js"
+    ]
+  },
+  "dependencies": {
+    "@types/jest": "^27.5.1",
+    "dotenv": "^16.0.1",
+    "git-commit-msg-linter": "^4.1.2",
+    "jest": "^28.1.0",
+    "redis": "^4.1.0",
+    "standard": "^17.0.0"
+  }
+}
