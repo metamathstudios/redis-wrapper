@@ -64,6 +64,9 @@ const getValue = async (key) => {
 }
 
 const getAccountIndexes = async (acc) => {
+
+  if (!acc) { throw 'ERROR: Input is not valid!' }
+  
   try {
     const jsonStr = '{"id": []}'
     const allTxs = JSON.parse(jsonStr)
