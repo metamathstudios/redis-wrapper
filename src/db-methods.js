@@ -64,9 +64,8 @@ const getValue = async (key) => {
 }
 
 const getAccountIndexes = async (acc) => {
-
   if (!acc) { throw 'ERROR: Input is not valid!' }
-  
+
   try {
     const jsonStr = '{"id": []}'
     const allTxs = JSON.parse(jsonStr)
@@ -74,10 +73,9 @@ const getAccountIndexes = async (acc) => {
     for await (const key of client.scanIterator()) {
       const data = await client.get(key)
       const jsonData = JSON.parse(data)
-      if(jsonData.from == acc)
-      allTxs.id.push(key)
+      if (jsonData.from == acc) { allTxs.id.push(key) }
     }
-    
+
     return allTxs
   } catch (e) {
     throw e
@@ -85,7 +83,6 @@ const getAccountIndexes = async (acc) => {
 }
 
 const getAccountTxs = async (acc) => {
-
   if (!acc) { throw 'ERROR: Input is not valid!' }
 
   try {
@@ -93,8 +90,8 @@ const getAccountTxs = async (acc) => {
     const jsonStr = '{"txs": []}'
     const allTxs = JSON.parse(jsonStr)
 
-    for (let i = 0; i < Object.entries(values.id).length; i++){
-      let data = values.id[i]
+    for (let i = 0; i < Object.entries(values.id).length; i++) {
+      const data = values.id[i]
       allTxs.txs.push(await getValue(data))
     }
     return allTxs
