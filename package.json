@@ -6,8 +6,8 @@
   "author": "Phill \"Taurinos\" Menezes",
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/metamathstudios/redis-wrapper.git"
+    "type": "git",
+    "url": "git+https://github.com/metamathstudios/redis-wrapper.git"
   },
   "scripts": {
     "lint": "standard .",
@@ -28,5 +28,13 @@
     "jest": "^28.1.0",
     "redis": "^4.1.0",
     "standard": "^17.0.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/metamathstudios/redis-wrapper/issues"
+  },
+  "homepage": "https://github.com/metamathstudios/redis-wrapper#readme",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {}
 }
