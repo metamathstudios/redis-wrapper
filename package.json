@@ -1,5 +1,5 @@
 {
-  "name": "@metamathstudios/redis",
+  "name": "@metamathstudios/redis-wrapper",
   "version": "1.0.0",
   "description": "Redis database IO wrapper for MetaMath projects",
   "main": "index.js",
