@@ -1,4 +1,4 @@
-const { start, stop, getAllKeys, setValue, deleteValue, getValue } = require('./src/db-methods')
+const { start, stop, getAllKeys, setValue, deleteValue, getValue, getAccountTxs, getAccountIndexes } = require('./src/db-methods')
 
 module.exports = {
   start,
@@ -6,5 +6,7 @@ module.exports = {
   getAllKeys,
   setValue,
   deleteValue,
-  getValue
+  getValue,
+  getAccountTxs,
+  getAccountIndexes
 }

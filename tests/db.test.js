@@ -56,6 +56,35 @@ describe('Redis: Database Methods', () => {
 
   })
 
+  it('Should return all data that contain the searched address', async () => {
+    await db.setValue('14A12F09BCFA', oyenteObject)
+    oyenteObject.from = '0x1'
+    await db.setValue('14A12F09BCFB', oyenteObject)
+    oyenteObject.from = '0x2'
+    await db.setValue('14A12F09BCFC', oyenteObject)
+    const transactions = await db.getAccountTxs('0x1')
+    await db.deleteValue('14A12F09BCFB')
+    await db.deleteValue('14A12F09BCFC')
+    expect(Object.entries(transactions.txs).length).toBe(1)
+    expect(transactions.txs[0].from).toBe('0x1')
+  })
+
+  it('Should throw if searched address is null or undefined', async () => {
+
+    try{
+      await db.getAccountTxs(null)
+    } catch (e){
+      expect(e).toMatch('ERROR: Input is not valid!')
+    }
+
+    try{
+      await db.getAccountTxs()
+    } catch (e){
+      expect(e).toMatch('ERROR: Input is not valid!')
+    }
+    
+  })
+
   it('Values are valid formated JSON', async () => {
     await db.setValue('14A12F09BCFA', oyenteObject)
     const data = await db.getValue('14A12F09BCFA')
