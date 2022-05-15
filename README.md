@@ -16,7 +16,7 @@ Or
 yarn add @metamathstudios/redis-wrapper
 ```
 
-This wrapper is used to interact with a [Redis cloud instance](https://app.redislabs.com/#/databases). In order to get started, you need to rename the `.env.example` file in the root folder to `.env` and fill out the variables with valid Redis Cloud information:
+This wrapper is used to interact with a [Redis cloud instance](https://app.redislabs.com/#/databases). In order to get started, you need create a `.env` and fill out the variables with valid Redis Cloud information:
 
 ```csh
 REDIS_USER='default'
