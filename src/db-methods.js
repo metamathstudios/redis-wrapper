@@ -7,7 +7,7 @@ const client = redis.createClient({
 
 client.on('error', (err) => console.log('Redis Client Error', err))
 
-const validInputs = ['initiated', 'error', 'processed', 'finalized']
+const validInputs = ['initiated', 'error', 'finalized']
 
 const getAllKeys = async () => {
   const jsonStr = '{"id": []}'
@@ -33,6 +33,7 @@ const setValue = async (key, data) => {
     data = JSON.stringify(data)
 
     if (tempKeys.id.includes(key) && JSON.parse(tempData).status === JSON.parse(data).status) { return false }
+    if (tempKeys.id.includes(key) && JSON.parse(tempData).status === 'finalized' && JSON.parse(data).status === 'initiated') { return false }
 
     await client.set(key, data)
     return true

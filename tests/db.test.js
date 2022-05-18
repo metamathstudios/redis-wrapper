@@ -26,7 +26,14 @@ describe('Redis: Database Methods', () => {
   it('Should error out if try to write with empty key', async () => {
     const receipt = await db.setValue(null, oyenteObject)
     expect(receipt).toBe(false)
+  })
 
+  it ('Should error out if try to write Initiated to an already finalized transaction', async () => {
+    oyenteObject.status = 'finalized'
+    await db.setValue('14A12F09BCFA', oyenteObject)
+    oyenteObject.status = 'initiated'
+    const receipt = await db.setValue('14A12F09BCFA', oyenteObject)
+    expect(receipt).toBe(false)
   })
 
   it('Can delete values from database', async () => {
@@ -117,7 +124,7 @@ describe('Redis: Database Methods', () => {
     oyenteObject.status = 'bar'
     const fifthTry = await db.setValue('14A12F09BCFA', oyenteObject)
     expect(firstTry).toBe(true)
-    expect(secondTry).toBe(true)
+    expect(secondTry).toBe(false)
     expect(thirdTry).toBe(true)
     expect(fourthTry).toBe(false)
     expect(fifthTry).toBe(false)
