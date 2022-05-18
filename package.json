@@ -1,6 +1,6 @@
 {
   "name": "@metamathstudios/redis-wrapper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Redis database IO wrapper for MetaMath projects",
   "main": "index.js",
   "author": "Phill \"Taurinos\" Menezes",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "dotenv": "^16.0.1",
-    "redis": "^4.1.0"    
+    "redis": "^4.1.0"
   },
   "bugs": {
     "url": "https://github.com/metamathstudios/redis-wrapper/issues"
